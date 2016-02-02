@@ -150,8 +150,10 @@
 			}
 
 			/* set title and contents */
-			$flyout.attr({ id: id }).find('.swlFlyout_title').text(data.opts.title);
+			var title = (typeof(data.opts.title) === 'function' ? ((data.opts.title).call($this)) : data.opts.title);
+			$flyout.attr({ id: id }).find('.swlFlyout_title').text(title);
 
+			var contents = (typeof(data.opts.content) === 'function' ? ((data.opts.content).call($this)) : data.opts.content);
 			if (data.opts.html === true) {
 				$flyout.find('.swlFlyout_content').html(data.opts.content);
 			}
@@ -303,14 +305,14 @@
 		 * Title of this flyout, can be text or string returned by function.
 		 * If the title is empty, the title area will not appear intentionally.
 		 * @type {string|function|null}
-		 * @this jqueryObject	- the jquery object attaching the flyout
+		 * @this jqueryObject	- the jquery object of target to which the flyout attaching
 		 */
 		title: "",
 
 		/**
 		 * Contents of this flyout, can be html string or string returned by function.
 		 * @type {string|function}
-		 * @this jqueryObject	- the jquery object attaching the flyout
+		 * @this jqueryObject	- the jquery object of target to which the flyout attaching
 		 */
 		content: "",
 

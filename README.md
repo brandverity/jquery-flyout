@@ -37,6 +37,15 @@ When it is `string`, this API executes predefined commands:
 Default options that can be overridden by users, see Options section for details.
 
 
+Events
+-------
+
+Flyout specific events that you can listen on to get notified when flyout status changed.
+
+- **`shown.flyout`**: fired after the flyout is shown, that is, after the animation if specified. `this` refers to the DOM element the flyout attaching to.
+- **`hidden.flyout`**: fired after the flyout is hidden, that is, after the animation if specified. `this` refers to the DOM element the flyout attaching to.
+
+
 Options
 -----------
 

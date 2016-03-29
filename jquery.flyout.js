@@ -172,6 +172,14 @@
 							CONST.directionClasses.bottom + ' ' + CONST.directionClasses.left);
 		$flyout.addClass(CONST.directionClasses[data.opts.placement]);
 
+		/* set the width if specified */
+		if (data.opts.width) {
+			$flyout.css({
+				width: data.opts.width,
+				maxWidth: data.opts.width
+			});
+		}
+
 		/* calculate and set the position */
 		__positioning($this, $flyout, data.opts.placement);
 
@@ -300,6 +308,13 @@
 	 */
 	$.fn.flyout.defaults = {
 		animation: true,
+
+		/**
+		 * The fixed width style of flyout area. If it is not specified, the width shrinks automatically
+		 * according to content width, but will not exceed the max-width defined in stylesheet.
+		 * @type {string}
+		 */
+		width: undefined,
 
 		/**
 		 * Title of this flyout, can be text or string returned by function.
